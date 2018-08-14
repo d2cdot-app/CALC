@@ -31,18 +31,16 @@ function calc(X){
         input = '';
         savaCalc ="/";
       }
-    }else {
-      if(X== '='){
-        if(input==''){
-
-        }else{
+    }else if(X== '='){
+        if(input!=''){
           form.text.value=eval(result + savaCalc + input);
           result = form.text.value;
           input = '';
         }
-
-
+      }else if(X=='C'){
+        input = '';
+        result = 0;
+        savaCalc ='';
       }
-    }
     }
   }
