@@ -41,6 +41,7 @@ function calc(X){
         input = '';
         result = 0;
         savaCalc ='';
+        form.text.value=result;
       }
     }
   }
