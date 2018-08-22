@@ -1,12 +1,13 @@
 var input = 0;
 var result = 0;
-var savaCalc =0;
+var saveCalc =0;
+var saveEqual=0;
 
 function execCalc(value01,value02,operator){
   switch (operator) {
-    case  0:
-      value01 = value02;
-      break;
+    // case  0:
+    //   value01 = value02;
+    //   break;
     case '+':
       value01 = value01 + value02;
       break;
@@ -28,16 +29,24 @@ function calc(X){
     input =(input*10) + X;
     form.text.value = input;
   }else if(X=='='){
-    // result = execCalc(result,input,savaCalc);
-    // input = result;
-    input = execCalc(result,input,savaCalc);
-    savaCalc = 0;
-    result = 0;
-    form.text.value=input;
+    result = execCalc(result,input,saveCalc);
+    form.text.value = result;
+    saveEqual=1;
+
+  }else if(X=='C'){
+    input =0;
+    result =0;
+    savaCalc =0;
   }else{
-    result = execCalc(result,input,savaCalc);
+    if(saveCalc != 0 && saveEqual==0){
+        result = execCalc(result,input,saveCalc);
+        form.text.value=result;
+    }else{
+      result =parseInt(form.text.value);
+      saveEqual=0;
+    }
     input = 0;
-    savaCalc = X;
-    form.text.value=result;
+    saveCalc = X;
   }
+
 }
