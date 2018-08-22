@@ -42,8 +42,6 @@ function calc(X){
     form.text.value=result;
   }else{
     if(savaCalc ==0){
-      // result = input;
-      // input = 0;
       savaCalc = X;
       form.text.value=result;
     }else{
