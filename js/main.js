@@ -25,15 +25,31 @@ function execCalc(value01,value02,operator){
 
 function calc(X){
   if(isNaN(X)==false){
-    input =(input*10) + X;
-    form.text.value = input;
+    if(savaCalc==0){
+      input =(input*10) + X;
+      form.text.value = input;
+    }
   }else if(X=='='){
+    // if(){
+        input = execCalc(result,input,savaCalc);
+        // result = 0;
+        form.text.value=input;
+    // }else{
+    //     input = execCalc(result,input,savaCalc);
+    //     result = 0;
+    //     form.text.value=input;
+    // }
     // result = execCalc(result,input,savaCalc);
     // input = result;
-    input = execCalc(result,input,savaCalc);
-    savaCalc = 0;
-    result = 0;
-    form.text.value=input;
+    // input = execCalc(result,input,savaCalc);
+    // savaCalc = 0;
+    // result = 0;
+    // form.text.value=input;
+  }else if(X=='C'){
+    input =0;
+    result =0;
+    savaCalc =0;
+    form.text.value=result;
   }else{
     result = execCalc(result,input,savaCalc);
     input = 0;
